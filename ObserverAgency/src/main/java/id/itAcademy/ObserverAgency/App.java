@@ -19,10 +19,9 @@ public class App
 		agency2.setObservable(agent1);
 		agency3.setObservable(agent1);
 		
-		agency1.update();
+		agent1.notifyObservers();
 		
 		agent1.postMessage("Cambios en borsa!");
-		
 		
 		
     }

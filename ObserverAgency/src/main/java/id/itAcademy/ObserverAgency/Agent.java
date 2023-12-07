@@ -32,11 +32,12 @@ public class Agent implements Observable{
 	@Override
 	public void notifyObservers() {
 		
-		if (!changed)
+		if (!changed) {
+			this.changed = true;
+		}
+			observers.forEach(obj -> obj.update());
 
-			this.observers.forEach(obj -> obj.update());
-
-		this.changed = true;
+	
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class Agent implements Observable{
 	public void postMessage(String msg){
 		System.out.println("Mensaje para agencias :"+ msg);
 		this.message = msg;
-		this.changed = false;
+		this.changed = true;
 		notifyObservers();
 	}
 
